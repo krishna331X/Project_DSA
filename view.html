@@ -8,11 +8,11 @@
 
 <body>
 
-<h2 style="text-align:center;margin-top:30px;">Bookings</h2>
+<h2 style="text-align:center;margin-top:30px;">All Bookings</h2>
 
-<div style="text-align:center;margin:20px">
+<div class="controls">
 
-<input type="text" id="search" placeholder="Search by name">
+<input type="text" id="search" placeholder="Search name">
 
 <button onclick="searchBooking()">Search</button>
 
@@ -22,14 +22,16 @@
 
 </div>
 
-<table border="1" align="center" cellpadding="10">
+<table>
 
 <thead>
+
 <tr>
 <th>Name</th>
 <th>Service</th>
 <th>Time</th>
 </tr>
+
 </thead>
 
 <tbody id="tableData"></tbody>

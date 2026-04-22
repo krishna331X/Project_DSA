@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Book Appointment</title>
+<title>View Bookings</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="form-container">
+<h2 style="text-align:center;margin-top:30px;">All Bookings</h2>
 
-<h2>Book Appointment</h2>
+<div class="controls">
 
-<form id="bookingForm">
+<input type="text" id="search" placeholder="Search name">
 
-<input type="text" id="name" placeholder="Enter Name" required>
+<button onclick="searchBooking()">Search</button>
 
-<select id="service">
+<button onclick="sortBookings()">Sort by Time</button>
 
-<option>Nail Art</option>
-<option>Manicure</option>
-<option>Pedicure</option>
-
-</select>
-
-<input type="time" id="time">
-
-<button type="submit">Book</button>
-
-</form>
+<button onclick="cancelLast()">Cancel Last</button>
 
 </div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Service</th>
+<select id="service">
+
+<option>Basic Manicure</option>
+<option>Gel Manicure</option>
+<option>Nail Art Design</option>
+<option>Acrylic Extensions</option>
+<option>Pedicure Spa</option>
+<option>French Tips</option>
+
+</select>
+<th>Time</th>
+</tr>
+
+</thead>
+
+<tbody id="tableData"></tbody>
+
+</table>
 
 <script src="script.js"></script>
 
