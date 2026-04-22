@@ -90,3 +90,39 @@ background:#111;
 color:white;
 margin-top:50px;
 }
+
+table{
+
+border-collapse:collapse;
+background:white;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+th{
+
+background:#ff4d6d;
+color:white;
+
+}
+
+td,th{
+
+padding:12px 20px;
+
+}
+
+input{
+
+padding:10px;
+border-radius:5px;
+border:1px solid #ccc;
+
+}
+
+button{
+
+margin:5px;
+
+}
