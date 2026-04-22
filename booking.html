@@ -1,15 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Appointment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="form-container">
+
+<h2>Book Appointment</h2>
+
 <form id="bookingForm">
 
-<input type="text" placeholder="Enter Name" required>
+<input type="text" id="name" placeholder="Enter Name" required>
 
-<select>
+<select id="service">
+
 <option>Nail Art</option>
 <option>Manicure</option>
 <option>Pedicure</option>
+
 </select>
 
-<input type="time">
+<input type="time" id="time">
 
 <button type="submit">Book</button>
 
 </form>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
