@@ -8,87 +8,62 @@
 
 <body>
 
-<header class="navbar">
-<h2 class="logo">Nail Studio</h2>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="booking.html">Book</a>
-<a href="view.html">Bookings</a>
-</nav>
+<header>
+<h1>💅 Nail Studio Booking System</h1>
+<p>DSA Based Booking Management</p>
 </header>
-
-<section class="hero">
 
 <section class="services">
 
-<h2>Our Nail Services</h2>
+<h2>Our Services</h2>
 
-<div class="service-grid">
-
-<div class="card">
-<h3>Basic Manicure</h3>
-<p>Cleaning, shaping and polish.</p>
-<span>₹300</span>
+<div class="service-card">
+<h3>Gel Nails</h3>
+<p>Long lasting shiny nails</p>
+<button onclick="bookService('Gel Nails')">Book</button>
 </div>
 
-<div class="card">
-<h3>Gel Manicure</h3>
-<p>Long lasting gel polish treatment.</p>
-<span>₹600</span>
+<div class="service-card">
+<h3>Acrylic Nails</h3>
+<p>Stylish nail extensions</p>
+<button onclick="bookService('Acrylic Nails')">Book</button>
 </div>
 
-<div class="card">
-<h3>Nail Art Design</h3>
-<p>Custom nail art and creative designs.</p>
-<span>₹800</span>
+<div class="service-card">
+<h3>Nail Art</h3>
+<p>Creative nail designs</p>
+<button onclick="bookService('Nail Art')">Book</button>
 </div>
 
-<div class="card">
-<h3>Acrylic Extensions</h3>
-<p>Long nail extensions with acrylic.</p>
-<span>₹1200</span>
-</div>
-
-<div class="card">
-<h3>Pedicure Spa</h3>
-<p>Relaxing spa pedicure treatment.</p>
-<span>₹700</span>
-</div>
-
-<div class="card">
-<h3>French Tips</h3>
-<p>Classic elegant french tip nails.</p>
-<span>₹500</span>
-</div>
-
+<div class="service-card">
+<h3>Manicure</h3>
+<p>Professional nail care</p>
+<button onclick="bookService('Manicure')">Book</button>
 </div>
 
 </section>
 
-<div class="hero-text">
+<section class="booking">
 
-<h1>Smart Nail Studio Booking System</h1>
+<h2>Booking Queue</h2>
 
-<p>
-Manage appointments using Data Structures & Algorithms concepts.
-</p>
+<ul id="queueList"></ul>
 
-<a href="booking.html">
-<button class="btn">Book Appointment</button>
-</a>
-
-</div>
-
-<div class="hero-img">
-<img src="https://images.unsplash.com/photo-1604654894610-df63bc536371">
-</div>
+<button onclick="serveCustomer()">Serve Next Customer</button>
 
 </section>
 
-<footer>
-<p>DSA Project • Nail Studio Booking System</p>
-</footer>
+<section class="history">
+
+<h2>Service History (Stack)</h2>
+
+<ul id="historyList"></ul>
+
+<button onclick="undoService()">Undo Last Service</button>
+
+</section>
+
+<script src="script.js"></script>
 
 </body>
 </html>

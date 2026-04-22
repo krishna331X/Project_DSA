@@ -1,87 +1,79 @@
-let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+let bookingQueue = [];
+let serviceStack = [];
 
-/* Queue concept */
+function bookService(service){
 
-document.getElementById("bookingForm")?.addEventListener("submit", function(e){
+let name = prompt("Enter your name");
 
-e.preventDefault();
+let customer = {
+name:name,
+service:service
+};
 
-let name = document.getElementById("name").value;
-let service = document.getElementById("service").value;
-let time = document.getElementById("time").value;
+bookingQueue.push(customer);
 
-let booking = {name,service,time};
+displayQueue();
+}
 
-bookings.push(booking);
+function displayQueue(){
 
-localStorage.setItem("bookings", JSON.stringify(bookings));
+let list = document.getElementById("queueList");
+list.innerHTML="";
 
-alert("Booking Added");
+bookingQueue.forEach((c,index)=>{
 
-});
+let li=document.createElement("li");
+li.innerText = (index+1) + ". " + c.name + " - " + c.service;
 
-/* Display */
-
-function displayBookings(){
-
-let table = document.getElementById("tableData");
-
-if(!table) return;
-
-table.innerHTML="";
-
-bookings.forEach(b => {
-
-let row = `<tr>
-
-<td>${b.name}</td>
-<td>${b.service}</td>
-<td>${b.time}</td>
-
-</tr>`;
-
-table.innerHTML += row;
+list.appendChild(li);
 
 });
 
 }
 
-/* Search */
+function serveCustomer(){
 
-function searchBooking(){
-
-let name = document.getElementById("search").value.toLowerCase();
-
-let result = bookings.find(b => b.name.toLowerCase() === name);
-
-if(result){
-alert("Booking Found");
-}else{
-alert("Booking Not Found");
+if(bookingQueue.length==0){
+alert("No customers");
+return;
 }
 
-}
+let served = bookingQueue.shift();
 
-/* Stack concept */
+serviceStack.push(served);
 
-function cancelLast(){
-
-bookings.pop();
-
-localStorage.setItem("bookings", JSON.stringify(bookings));
-
-displayBookings();
+displayQueue();
+displayHistory();
 
 }
 
-/* Sorting */
+function displayHistory(){
 
-function sortBookings(){
+let list = document.getElementById("historyList");
+list.innerHTML="";
 
-bookings.sort((a,b)=> a.time.localeCompare(b.time));
+serviceStack.slice().reverse().forEach(c=>{
 
-displayBookings();
+let li=document.createElement("li");
+li.innerText = c.name + " - " + c.service;
+
+list.appendChild(li);
+
+});
 
 }
 
-displayBookings();
+function undoService(){
+
+if(serviceStack.length==0){
+alert("Nothing to undo");
+return;
+}
+
+let last = serviceStack.pop();
+
+alert(last.name + " service removed");
+
+displayHistory();
+
+}
